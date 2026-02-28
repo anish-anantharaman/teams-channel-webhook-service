@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: teams
+
+server:
+  port: 8085
+
+teams:
+  channel:
+    webhook-url: ${TEAMS_WEBHOOK_URL}
