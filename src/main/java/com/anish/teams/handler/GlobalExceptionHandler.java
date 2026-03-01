@@ -1,4 +1,4 @@
-package com.anish.teams.config.handler;
+package com.anish.teams.handler;
 
 import com.anish.teams.dto.ApiResponseDto;
 import lombok.extern.slf4j.Slf4j;
@@ -30,5 +30,17 @@ public class GlobalExceptionHandler {
                 Boolean.FALSE
         );
         return ResponseEntity.badRequest().body(response);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Object> handleServerError(Exception e) {
+
+        ApiResponseDto response = new ApiResponseDto(
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
+                "Failed to queue the notification",
+                Boolean.FALSE
+        );
+        return ResponseEntity.internalServerError().body(response);
     }
 }

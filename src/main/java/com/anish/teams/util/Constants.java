@@ -42,4 +42,36 @@ public class Constants {
         public static final String HEADING = "heading";
 
     }
+
+    public static final class SwaggerDocExamples {
+
+        private SwaggerDocExamples() {} // prevent instantiation
+
+        public static final String SUCCESS = """
+        {
+          "statusCode": 202,
+          "statusMessage": "Accepted",
+          "message": "Notification queued successfully",
+          "data": true
+        }
+        """;
+
+        public static final String BAD_REQUEST = """
+        {
+          "statusCode": 400,
+          "statusMessage": "Bad Request",
+          "message": "url : must be a valid URL; buttonTitle : must not be blank; ",
+          "data": false
+        }
+        """;
+
+        public static final String INTERNAL_SERVER_ERROR = """
+        {
+          "statusCode": 500,
+          "statusMessage": "Internal Server Error",
+          "message": "Failed to queue the notification",
+          "data": false
+        }
+        """;
+    }
 }
